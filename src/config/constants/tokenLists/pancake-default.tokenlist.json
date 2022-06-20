@@ -137,6 +137,14 @@
       "chainId": 97,
       "decimals": 18,
       "logoURI": "https://pancakeswap.finance/images/tokens/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56.png"
+    },
+    {
+      "name": "SCV Token",
+      "symbol": "SCV",
+      "address": "0xcc6c2a4df8A88F1E0302cCF455d4023FA797b368",
+      "chainId": 97,
+      "decimals": 18,
+      "logoURI": "/images/tokens/0xcc6c2a4df8A88F1E0302cCF455d4023FA797b368.svg"
     }
   ]
 }
