@@ -45,14 +45,14 @@ const Home: React.FC = () => {
   const { theme } = useTheme()
   const { account } = useWeb3React()
 
-  const HomeSectionContainerStyles = { margin: '0', width: '100%', maxWidth: '968px' }
+  const HomeSectionContainerStyles = { margin: '0', width: '100%', maxWidth: '968px', color: '#ffff' }
 
   const { t } = useTranslation()
 
   return (
     <>
       <PageMeta />
-      <StyledHeroSection
+      {/* <StyledHeroSection
         innerProps={{ style: { margin: '0', width: '100%' } }}
         background={
           theme.isDark
@@ -69,8 +69,8 @@ const Home: React.FC = () => {
         )}
         <MultipleBanner />
         <Hero />
-      </StyledHeroSection>
-      <PageSection
+      </StyledHeroSection> */}
+      {/* <PageSection
         innerProps={{ style: { margin: '0', width: '100%' } }}
         background={
           theme.isDark
@@ -129,14 +129,15 @@ const Home: React.FC = () => {
       >
         <SalesSection {...cakeSectionData(t)} />
         <CakeDataRow />
-      </PageSection>
+      </PageSection> */}
       <PageSection
         innerProps={{ style: HomeSectionContainerStyles }}
-        background="linear-gradient(180deg, #7645D9 0%, #5121B1 100%)"
+        background="#08121C"
         index={2}
         hasCurvedDivider={false}
       >
-        <Footer />
+        {/* <Footer /> */}
+        <h2>Home Page</h2>
       </PageSection>
     </>
   )
