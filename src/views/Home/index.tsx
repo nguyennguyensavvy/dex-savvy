@@ -1,21 +1,14 @@
-import styled from 'styled-components'
-import PageSection from 'components/PageSection'
+import { Flex } from '@pancakeswap/uikit'
 import { useWeb3React } from '@web3-react/core'
-import useTheme from 'hooks/useTheme'
+import ConnectWalletButton from 'components/ConnectWalletButton'
 import Container from 'components/Layout/Container'
 import { PageMeta } from 'components/Layout/Page'
+import PageSection from 'components/PageSection'
 import { useTranslation } from 'contexts/Localization'
-import Hero from './components/Hero'
-import { swapSectionData, earnSectionData, cakeSectionData } from './components/SalesSection/data'
-import MetricsSection from './components/MetricsSection'
-import SalesSection from './components/SalesSection'
-import WinSection from './components/WinSection'
-import FarmsPoolsRow from './components/FarmsPoolsRow'
-import Footer from './components/Footer'
-import CakeDataRow from './components/CakeDataRow'
-import { WedgeTopLeft, InnerWedgeWrapper, OuterWedgeWrapper, WedgeTopRight } from './components/WedgeSvgs'
-import UserBanner from './components/UserBanner'
-import MultipleBanner from './components/Banners/MultipleBanner'
+import useTheme from 'hooks/useTheme'
+import styled from 'styled-components'
+import FeatureBox from './components/FeatureSection/FeatureBox'
+import { BannerBox } from './style'
 
 const StyledHeroSection = styled(PageSection)`
   padding-top: 16px;
@@ -45,7 +38,13 @@ const Home: React.FC = () => {
   const { theme } = useTheme()
   const { account } = useWeb3React()
 
-  const HomeSectionContainerStyles = { margin: '0', width: '100%', maxWidth: '968px', color: '#ffff' }
+  const HomeSectionContainerStyles = {
+    margin: '0',
+    width: '100%',
+    maxWidth: '1440px',
+    minHeight: '60vh',
+    color: '#ffff',
+  }
 
   const { t } = useTranslation()
 
@@ -59,7 +58,23 @@ const Home: React.FC = () => {
         hasCurvedDivider={false}
         minHeight="90vh"
       >
-        <h2>Home Page</h2>
+        <BannerBox>
+          <div className="about-box">
+            <h1 className="hero-title">Win 200% per year with Savvycoin</h1>
+
+            <p className="desc">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et sit sapien, morbi integer sed odio. Congue
+              hendrerit feugiat donec rhoncus auctor amet.
+            </p>
+
+            <ConnectWalletButton mt="24px" scale="md" />
+          </div>
+          <img src="/images/home/chainBanner.png" alt="chain" className="chainBanner" />
+        </BannerBox>
+
+        <Flex>
+          <FeatureBox />
+        </Flex>
       </PageSection>
     </>
   )

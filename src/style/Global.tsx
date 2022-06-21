@@ -7,6 +7,49 @@ declare module 'styled-components' {
 }
 
 const GlobalStyle = createGlobalStyle`
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter/Inter-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/fonts/Inter/Inter-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    src:url('/fonts/SpaceGrotesk/SpaceGrotesk-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('/fonts/SpaceGrotesk/SpaceGrotesk-Medium.ttf');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('/fonts/SpaceGrotesk/SpaceGrotesk-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('/fonts/SpaceGrotesk/SpaceGrotesk-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
   * {
     font-family: 'Kanit', sans-serif;
   }
