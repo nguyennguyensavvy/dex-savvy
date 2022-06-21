@@ -1,7 +1,7 @@
 import { Svg } from '@pancakeswap/uikit'
 
 const ConvertIcon = () => (
-  <Svg viewBox="0 0 54 54">
+  <svg viewBox="0 0 54 54" width="54" height="54" fill="none">
     <path
       d="M24.75 36.3375V42.4125C24.75 47.475 22.725 49.5 17.6625 49.5H11.5875C6.525 49.5 4.5 47.475 4.5 42.4125V36.3375C4.5 31.275 6.525 29.25 11.5875 29.25H17.6625C22.725 29.25 24.75 31.275 24.75 36.3375Z"
       stroke="#00CB65"
@@ -30,6 +30,6 @@ const ConvertIcon = () => (
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-  </Svg>
+  </svg>
 )
 export default ConvertIcon

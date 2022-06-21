@@ -2,11 +2,12 @@ import TransparentIcon from 'components/Svg/TransparentIcon'
 import React from 'react'
 import styled from 'styled-components'
 
-const StyledFeatureBox = styled.div`
-  width: 30%;
+const StyledFeatureBox = styled.div<{ color: string }>`
+  width: 32%;
   background: rgba(255, 255, 255, 0.08);
   border-radius: 32px;
   padding: 24px;
+  min-width: '250px';
 
   .icon {
     display: flex;
@@ -14,12 +15,13 @@ const StyledFeatureBox = styled.div`
   }
 
   .info {
+    margin-top: 50px;
     h4.title {
       font-family: 'Space Grotesk';
       font-weight: 600;
       font-size: 32px;
       line-height: 36px;
-      color: #f6b24f;
+      color: ${({ color }) => color};
     }
 
     p.desc {
@@ -35,18 +37,19 @@ const StyledFeatureBox = styled.div`
 
 type Props = {
   title: string
+  description: string
+  icon: React.ReactElement
+  color: string
 }
 
-const FeatureBox = (props: Props) => {
+const FeatureBox = ({ title, description, icon, color }: Props) => {
   return (
-    <StyledFeatureBox>
-      <div className="icon">
-        <TransparentIcon />
-      </div>
+    <StyledFeatureBox color={color}>
+      <div className="icon">{icon}</div>
 
       <div className="info">
-        <h4 className="title">Transparent</h4>
-        <p className="desc">The data is embedded in the network as a block, public.</p>
+        <h4 className="title">{title}</h4>
+        <p className="desc">{description}</p>
       </div>
     </StyledFeatureBox>
   )
