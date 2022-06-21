@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styled, { keyframes } from "styled-components";
 import Flex from "../../../components/Box/Flex";
 import { LogoIcon, LogoWithTextIcon } from "../../../components/Svg";
+import SavvycomCompanyLogo from "../../../components/Svg/Icons/SavvycomCompanyLogo";
 import { MenuContext } from "../context";
 
 interface Props {
@@ -41,6 +42,10 @@ const StyledLink = styled("a")`
       animation-iteration-count: 1;
     }
   }
+
+  svg {
+    width: 180px;
+  }
 `;
 
 const Logo: React.FC<Props> = ({ isDark, href }) => {
@@ -48,19 +53,20 @@ const Logo: React.FC<Props> = ({ isDark, href }) => {
   const isAbsoluteUrl = href.startsWith("http");
   const innerLogo = (
     <>
-      <LogoIcon className="mobile-icon" />
-      <LogoWithTextIcon className="desktop-icon" isDark={isDark} />
+      {/* <LogoIcon className="mobile-icon" />
+      <LogoWithTextIcon className="desktop-icon" isDark={isDark} /> */}
+      <SavvycomCompanyLogo />
     </>
   );
 
   return (
     <Flex>
       {isAbsoluteUrl ? (
-        <StyledLink as="a" href={href} aria-label="Pancake home page">
+        <StyledLink as="a" href={href} aria-label="Savvycoin home page">
           {innerLogo}
         </StyledLink>
       ) : (
-        <StyledLink href={href} as={linkComponent} aria-label="Pancake home page">
+        <StyledLink href={href} as={linkComponent} aria-label="Savvycoin home page">
           {innerLogo}
         </StyledLink>
       )}

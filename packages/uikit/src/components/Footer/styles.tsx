@@ -55,3 +55,56 @@ export const StyledSocialLinks = styled(SocialLinks)`
 export const StyledText = styled.span`
   color: ${darkColors.text};
 `;
+
+export const FooterRoot = styled.div`
+  width: 100%;
+  background-color: #0f282a;
+  padding-top: 51px;
+
+  .logo {
+    display: flex;
+    justify-content: center;
+  }
+
+  .description {
+    padding: 30px 30px 46px 30px;
+    border-bottom: 1px solid #ffffffa5;
+
+    p {
+      margin: auto;
+      max-width: 970px;
+      font-family: "Open Sans", sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      color: #ffffffa5;
+    }
+  }
+
+  .social {
+    display: flex;
+    padding: 51px 0;
+    justify-content: center;
+
+    .social-content {
+      min-width: 80%;
+      display: flex;
+      justify-content: center;
+      gap: 42px;
+      flex-wrap: wrap;
+    }
+
+    .social-item {
+      font-family: "Google Sans", sans-serif;
+      font-weight: 700;
+      display: flex;
+      gap: 15px;
+      font-size: 18px;
+      color: #ffffffa5;
+      cursor: pointer;
+      align-items: center;
+    }
+  }
+`;

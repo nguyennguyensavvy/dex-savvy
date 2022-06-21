@@ -9,22 +9,22 @@ const StyledPage = styled.div<{ $removePadding: boolean; $noMinHeight }>`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: ${({ $removePadding }) => ($removePadding ? '0' : '16px')};
+  padding: ${({ $removePadding }) => ($removePadding ? '0' : '60px')};
   padding-bottom: 0;
   min-height: ${({ $noMinHeight }) => ($noMinHeight ? 'initial' : 'calc(100vh - 64px)')};
-  background: ${({ theme }) => theme.colors.gradients.bubblegum};
+  background: #08121c;
 
   ${({ theme }) => theme.mediaQueries.xs} {
     background-size: auto;
   }
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    padding: ${({ $removePadding }) => ($removePadding ? '0' : '24px')};
+    padding: ${({ $removePadding }) => ($removePadding ? '0' : '80px')};
     padding-bottom: 0;
   }
 
   ${({ theme }) => theme.mediaQueries.lg} {
-    padding: ${({ $removePadding }) => ($removePadding ? '0' : '32px')};
+    padding: ${({ $removePadding }) => ($removePadding ? '0' : '100px')};
     padding-bottom: 0;
     min-height: ${({ $noMinHeight }) => ($noMinHeight ? 'initial' : 'calc(100vh - 100px)')};
   }

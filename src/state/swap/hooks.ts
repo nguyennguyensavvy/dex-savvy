@@ -96,8 +96,8 @@ export function useSwapActionHandlers(): {
 
 const BAD_RECIPIENT_ADDRESSES: string[] = [
   '0xb7926c0430afb07aa7defde6da862ae0bde767bc', // v2 factory
-  '0xE2cb7F5cB8660B44Bddb6141D15f3AE8219F3B95', // v2 router 01
-  '0x0863334437086090A7cD6c5Fcc4D3B208bab2bef', // v2 router 02
+  '0x0863334437086090A7cD6c5Fcc4D3B208bab2bef', // v2 router 01
+  '0x05fF2B0DB69458A0750badebc4f9e13aDd608C7F', // v2 router 02
 ]
 
 /**
