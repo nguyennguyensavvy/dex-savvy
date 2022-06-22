@@ -33,7 +33,7 @@ export const DropdownMenuItem = styled.button<StyledDropdownMenuItemProps & { $i
 
   &:hover:not(:disabled) {
     transition: all 0.3s ease-in-out;
-    transform: translateX(20px);
+    transform: translateX(12px);
     color: ${({ theme }) => theme.colors.primaryYellow};
   }
 
