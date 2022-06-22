@@ -33,8 +33,8 @@ export const BannerBox = styled.div`
   img.chainBanner {
     position: absolute;
     right: -200px;
-    top: -150px;
+    top: -120px;
     z-index: 2;
-    max-width: 950px;
+    max-width: 1050px;
   }
 `
