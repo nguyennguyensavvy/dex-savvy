@@ -99,7 +99,7 @@ const Home: React.FC = () => {
     },
   ]
 
-  const { isMobile } = useMatchBreakpointsContext()
+  const { isMobile, isDesktop } = useMatchBreakpointsContext()
   const [isChartExpanded, setIsChartExpanded] = useState(false)
   const [userChartPreference, setUserChartPreference] = useExchangeChartManager(isMobile)
   const [isChartDisplayed, setIsChartDisplayed] = useState(userChartPreference)
@@ -150,7 +150,7 @@ const Home: React.FC = () => {
 
             <ConnectWalletButton mt="24px" scale="md" maxWidth="176px" />
           </div>
-          <img src="/images/home/chainBanner.png" alt="chain" className="chainBanner" />
+          {isDesktop && <img src="/images/home/chainBanner.png" alt="chain" className="chainBanner" />}
         </BannerBox>
 
         <Flex justifyContent="space-between">
