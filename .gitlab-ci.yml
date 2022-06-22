@@ -1,9 +1,9 @@
 image: node:14
 
-cache:
-  key: cache_yarn
-  paths:
-    - .cache_yarn
+variables:
+  - GIT_STRATEGY: fetch
+  - GIT_CLEAN_FLAGS: -ffdx -e .cache_yarn -e build -e node_modules
+
 
 stages:
   - install
@@ -18,9 +18,6 @@ install_node_modules:
   only:
     - develop
     - production
-  artifacts:
-    paths:
-      - node_modules
   tags:
     - local
 
