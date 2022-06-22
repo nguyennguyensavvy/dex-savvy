@@ -46,4 +46,4 @@ debug.log*
 # turbo
 .turbo
 
-.env
+yarn.lock
