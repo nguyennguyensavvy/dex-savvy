@@ -51,7 +51,7 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal;
 }
   * {
-    font-family: 'Kanit', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
   body {
     background-color: ${({ theme }) => theme.colors.background};
