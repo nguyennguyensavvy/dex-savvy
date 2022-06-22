@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import styled, { keyframes } from "styled-components";
 import Flex from "../../../components/Box/Flex";
 import { LogoIcon, LogoWithTextIcon } from "../../../components/Svg";
-import SavvycomCompanyLogo from "../../../components/Svg/Icons/SavvycomCompanyLogo";
+import SVCTextLogo from "../../../components/Svg/Icons/SVCTextLogo";
 import { MenuContext } from "../context";
 
 interface Props {
@@ -55,7 +55,7 @@ const Logo: React.FC<Props> = ({ isDark, href }) => {
     <>
       {/* <LogoIcon className="mobile-icon" />
       <LogoWithTextIcon className="desktop-icon" isDark={isDark} /> */}
-      <SavvycomCompanyLogo />
+      <SVCTextLogo />
     </>
   );
 

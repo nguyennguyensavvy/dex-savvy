@@ -9,7 +9,7 @@ import {
   Youtube,
 } from "@styled-icons/boxicons-logos";
 import React from "react";
-import SavvycomCompanyLogo from "../Svg/Icons/SavvycomCompanyLogo";
+import { SavvycomLogo } from "../Svg";
 import { FooterRoot } from "./styles";
 import { FooterProps } from "./types";
 
@@ -60,7 +60,7 @@ const MenuItem: React.FC<FooterProps> = () => {
   return (
     <FooterRoot>
       <div className="logo">
-        <SavvycomCompanyLogo />
+        <SavvycomLogo width={278} />
       </div>
 
       <div className="description">
