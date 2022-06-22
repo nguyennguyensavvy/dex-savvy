@@ -9,7 +9,7 @@ const getTextColor = ({
   theme,
 }: StyledDropdownMenuItemProps & { theme: DefaultTheme; $isActive: boolean }) => {
   if (disabled) return theme.colors.textDisabled;
-  if ($isActive) return theme.colors.secondary;
+  if ($isActive) return theme.colors.primaryYellow;
 
   return theme.colors.textSubtle;
 };
@@ -19,11 +19,12 @@ export const DropdownMenuItem = styled.button<StyledDropdownMenuItemProps & { $i
   border: 0;
   background: transparent;
   color: ${({ theme, disabled, $isActive }) => getTextColor({ theme, disabled, $isActive })};
+
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
   font-weight: ${({ $isActive = false }) => ($isActive ? "600" : "400")};
   display: flex;
   font-size: 16px;
-  height: 48px;
+  height: 39px;
   justify-content: space-between;
   outline: 0;
   padding-left: 16px;
@@ -31,7 +32,9 @@ export const DropdownMenuItem = styled.button<StyledDropdownMenuItemProps & { $i
   width: 100%;
 
   &:hover:not(:disabled) {
-    background-color: ${({ theme }) => theme.colors.tertiary};
+    transition: all 0.3s ease-in-out;
+    transform: translateX(20px);
+    color: ${({ theme }) => theme.colors.primaryYellow};
   }
 
   &:active:not(:disabled) {
@@ -50,6 +53,9 @@ export const StyledDropdownMenuItemContainer = styled.div`
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
   }
+  &:not(:last-child) {
+    border-bottom: 1px solid ${({ theme }) => theme.colors.textSubtle};
+  }
 `;
 
 export const DropdownMenuDivider = styled.hr`
@@ -61,12 +67,10 @@ export const DropdownMenuDivider = styled.hr`
 
 export const StyledDropdownMenu = styled.div<{ $isOpen: boolean; $isBottomNav: boolean }>`
   background-color: ${({ theme }) => theme.card.background};
-  border: 1px solid ${({ theme }) => theme.colors.cardBorder};
-  border-radius: 16px;
   padding-bottom: 4px;
   padding-top: 4px;
   pointer-events: auto;
-  width: ${({ $isBottomNav }) => ($isBottomNav ? "calc(100% - 32px)" : "280px")};
+  width: ${({ $isBottomNav }) => ($isBottomNav ? "calc(100% - 32px)" : "180px")};
   visibility: visible;
   z-index: 1001;
 
@@ -79,11 +83,12 @@ export const StyledDropdownMenu = styled.div<{ $isOpen: boolean; $isBottomNav: b
 `;
 
 export const LinkStatus = styled(Text)<{ color: keyof Colors }>`
+  font-family: "Space Grotesk", sans-serif;
   border-radius: ${({ theme }) => theme.radii.default};
   padding: 0 8px;
   border: 2px solid;
   border-color: ${({ theme, color }) => theme.colors[color]};
   box-shadow: none;
-  color: ${({ theme, color }) => theme.colors[color]};
+  color: "#FFFFFFA6";
   margin-left: 8px;
 `;

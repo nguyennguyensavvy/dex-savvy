@@ -24,8 +24,8 @@ const StyledMenuItem = styled.a<StyledMenuItemProps>`
   position: relative;
   display: flex;
   align-items: center;
-
-  color: ${({ theme, $isActive }) => ($isActive ? theme.colors.secondary : theme.colors.textSubtle)};
+  font-family: "Space Grotesk", sans-serif;
+  color: ${({ theme, $isActive }) => ($isActive ? theme.colors.primaryYellow : theme.colors.textSubtle)};
   font-size: 16px;
   font-weight: ${({ $isActive }) => ($isActive ? "600" : "400")};
 
@@ -47,6 +47,9 @@ const StyledMenuItem = styled.a<StyledMenuItemProps>`
       ? `
     padding: 0 16px;
     height: 48px;
+    &:not(last-child){
+      margin-right: 12px;
+    }
   `
       : `
     padding: 4px 4px 0px 4px;
@@ -54,8 +57,7 @@ const StyledMenuItem = styled.a<StyledMenuItemProps>`
   `}
 
   &:hover {
-    background: ${({ theme }) => theme.colors.tertiary};
-    ${({ $variant }) => $variant === "default" && "border-radius: 16px;"};
+    color: ${({ theme }) => theme.colors.primaryYellow};
   }
 `;
 

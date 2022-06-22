@@ -19,30 +19,6 @@ import PriceChartContainer from 'views/Swap/components/Chart/PriceChartContainer
 import FeatureBox from './components/FeatureSection/FeatureBox'
 import { BannerBox } from './style'
 
-const StyledHeroSection = styled(PageSection)`
-  padding-top: 16px;
-
-  ${({ theme }) => theme.mediaQueries.md} {
-    padding-top: 48px;
-  }
-`
-
-const UserBannerWrapper = styled(Container)`
-  z-index: 1;
-  position: absolute;
-  width: 100%;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, 0);
-  padding-left: 0px;
-  padding-right: 0px;
-
-  ${({ theme }) => theme.mediaQueries.lg} {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-`
-
 const Home: React.FC = () => {
   const { theme } = useTheme()
   const { account } = useWeb3React()
@@ -50,10 +26,10 @@ const Home: React.FC = () => {
   const HomeSectionContainerStyles = {
     margin: '0',
     width: '100%',
-    maxWidth: theme.mediaQueries.lg ? '1296px' : '968px',
+    maxWidth: theme.mediaQueries.lg ? '1216px' : '968px',
     minHeight: '60vh',
     color: '#ffff',
-    padding: theme.mediaQueries.md ? '30px' : '0',
+    padding: '0',
   }
 
   const ChartInfo = styled.div`
