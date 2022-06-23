@@ -1,7 +1,7 @@
 import { Svg } from '@pancakeswap/uikit'
 
 const GridLock = () => (
-  <Svg viewBox="0 0 54 54">
+  <svg viewBox="0 0 54 54" width="54" height="54" fill="none">
     <path
       d="M49.5 24.75V20.25C49.5 9 45 4.5 33.75 4.5H20.25C9 4.5 4.5 9 4.5 20.25V33.75C4.5 45 9 49.5 20.25 49.5H22.5"
       stroke="#ED4B9E"
@@ -39,7 +39,7 @@ const GridLock = () => (
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-  </Svg>
+  </svg>
 )
 
 export default GridLock
