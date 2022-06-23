@@ -156,5 +156,6 @@ export { default as WalletIcon } from "./Icons/Wallet";
 export { default as WarningIcon } from "./Icons/Warning";
 export { default as SVCLogo } from "./Icons/SVCLogo";
 export { default as Svg } from "./Svg";
-export { default as SavvycomCompanyLogo } from "./Icons/SavvycomCompanyLogo";
+export { default as SVCTextLogo } from "./Icons/SVCTextLogo";
+export { default as SavvycomLogo } from "./Icons/SavvycomLogo";
 export type { SvgProps } from "./types";
