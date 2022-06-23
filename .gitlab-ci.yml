@@ -52,9 +52,14 @@ test_client:
 
 deploy_all_develop:
   stage: deploy
+  before_script:
+    - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
   script:
-    - yarn global add firebase-tools --cache-folder ../.cache_yarn
-    - firebase --token $FIREBASE_DEPLOY_KEY_STAGING --project staging deploy
+    - scp -o StrictHostKeyChecking=no -r build savvycom@10.22.4.142:~/savvy-dex-fe-react/build
   only:
     - develop
   environment:
@@ -68,7 +73,7 @@ deploy_all_develop:
 deploy_all_production:
   stage: deploy
   script:
-    - echo "deploy to production"
+    - echo "TODO deploy to production"
   only:
     - master
   environment:
