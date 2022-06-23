@@ -21,7 +21,7 @@ const Wrapper = styled.div`
 const StyledNavContainer = styled.div`
   margin: auto;
   ${({ theme }) => theme.mediaQueries.lg} {
-    max-width: 90%;
+    max-width: 1216px;
   }
 `;
 
@@ -33,7 +33,7 @@ const StyledNav = styled.nav`
   height: ${MENU_HEIGHT}px;
   background-color: ${({ theme }) => theme.nav.background};
   transform: translate3d(0, 0, 0);
-  padding: 24px;
+  padding: 24px 0;
 `;
 
 const FixedContainer = styled.div<{ showMenu: boolean; height: number }>`
