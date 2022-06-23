@@ -9,6 +9,7 @@ import {
   Youtube,
 } from "@styled-icons/boxicons-logos";
 import React from "react";
+import SavvycomCompanyLogo from "../Svg/Icons/SavvycomCompanyLogo";
 import { FooterRoot } from "./styles";
 import { FooterProps } from "./types";
 
@@ -58,7 +59,9 @@ const socialList: { icon: React.ReactNode; href: string; title: string }[] = [
 const MenuItem: React.FC<FooterProps> = () => {
   return (
     <FooterRoot>
-      <div className="logo">{/* <SavvyCompanyLogo /> */}</div>
+      <div className="logo">
+        <SavvycomCompanyLogo />
+      </div>
 
       <div className="description">
         <p>
