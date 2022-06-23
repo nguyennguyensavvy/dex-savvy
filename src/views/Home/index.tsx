@@ -50,9 +50,10 @@ const Home: React.FC = () => {
   const HomeSectionContainerStyles = {
     margin: '0',
     width: '100%',
-    maxWidth: '1440px',
+    maxWidth: theme.mediaQueries.lg ? '1296px' : '968px',
     minHeight: '60vh',
     color: '#ffff',
+    padding: theme.mediaQueries.md ? '30px' : '0',
   }
 
   const ChartInfo = styled.div`

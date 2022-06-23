@@ -35,5 +35,6 @@ export const BannerBox = styled.div`
     right: -200px;
     top: -150px;
     z-index: 2;
+    max-width: 950px;
   }
 `
