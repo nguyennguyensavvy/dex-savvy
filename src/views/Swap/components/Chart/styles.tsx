@@ -10,6 +10,7 @@ export const StyledPriceChart = styled(Box)<{
   border-radius: 32px;
   width: 100%;
   padding-top: 36px;
+  max-width: 802px;
   ${({ theme }) => theme.mediaQueries.sm} {
     padding-top: 8px;
     background: ${({ $isDark }) => ($isDark ? '#08121C' : 'rgba(255, 255, 255, 0.5)')};
