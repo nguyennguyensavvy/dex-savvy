@@ -70,5 +70,5 @@ deploy_all_production:
   environment:
     name: production
   dependencies:
-    - install_functions
-    - build_client
+    - install_node_modules
+    - build_frontend
