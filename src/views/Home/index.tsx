@@ -144,8 +144,8 @@ const Home: React.FC = () => {
             <h1 className="hero-title">Win 200% per year with Savvycoin</h1>
 
             <p className="desc">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et sit sapien, morbi integer sed odio. Congue
-              hendrerit feugiat donec rhoncus auctor amet.
+              Savvy Coin is the solution for the Savvy Community, providing freedom, fast payments, rewards, and high
+              profit.
             </p>
 
             <ConnectWalletButton mt="24px" scale="md" maxWidth="176px" />
