@@ -21,7 +21,7 @@ install_node_modules:
   artifacts:
     paths:
       - node_modules
-  tag:
+  tags:
     - local
 
 
@@ -38,7 +38,7 @@ build_frontend:
   artifacts:
     paths:
       - build
-  tag:
+  tags:
     - local
 
 
@@ -64,7 +64,7 @@ deploy_all_develop:
   dependencies:
     - install_node_modules
     - build_frontend
-  tag:
+  tags:
     - local
 
 deploy_all_production:
@@ -78,5 +78,5 @@ deploy_all_production:
   dependencies:
     - install_node_modules
     - build_frontend
-  tag:
+  tags:
     - local
