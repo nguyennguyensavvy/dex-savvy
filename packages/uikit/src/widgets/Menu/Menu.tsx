@@ -44,6 +44,7 @@ const FixedContainer = styled.div<{ showMenu: boolean; height: number }>`
   height: ${({ height }) => `${height}px`};
   width: 100%;
   z-index: 20;
+  background-color: ${({ theme }) => theme.nav.background};
 `;
 
 const TopBannerContainer = styled.div<{ height: number }>`
@@ -123,9 +124,6 @@ const Menu: React.FC<NavProps> = ({
 
   // Find the home link if provided
   const homeLink = links.find((link) => link.label === "Home");
-
-  const subLinksWithoutMobile = subLinks?.filter((subLink) => !subLink.isMobileOnly);
-  const subLinksMobileOnly = subLinks?.filter((subLink) => subLink.isMobileOnly);
 
   return (
     <MenuContext.Provider value={{ linkComponent }}>
