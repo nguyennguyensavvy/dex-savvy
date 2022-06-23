@@ -1,8 +1,8 @@
 image: node:14
 
 variables:
-  - GIT_STRATEGY: fetch
-  - GIT_CLEAN_FLAGS: -ffdx -e .cache_yarn -e build -e node_modules
+  GIT_STRATEGY: fetch
+  GIT_CLEAN_FLAGS: -ffdx -e .cache_yarn -e build -e node_modules
 
 
 stages:
