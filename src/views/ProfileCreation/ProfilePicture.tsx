@@ -1,37 +1,22 @@
-import { useContext, useEffect, useState } from 'react'
-import styled from 'styled-components'
-import { AutoRenewIcon, Button, Card, CardBody, Heading, Skeleton, Text } from '@pancakeswap/uikit'
+import { AutoRenewIcon, Button, Card, CardBody, Heading, Text } from '@pancakeswap/uikit'
 import { useWeb3React } from '@web3-react/core'
 import { NextLinkFromReactRouter } from 'components/NextLink'
-import { getPancakeProfileAddress } from 'utils/addressHelpers'
-import { getErc721Contract } from 'utils/contractHelpers'
 import { useTranslation } from 'contexts/Localization'
-import useToast from 'hooks/useToast'
-import { useProfileContract } from 'hooks/useContract'
 import { useCallWithGasPrice } from 'hooks/useCallWithGasPrice'
 import useCatchTxError from 'hooks/useCatchTxError'
-import { useProfile } from 'state/profile/hooks'
-import SelectionCard from './SelectionCard'
-import NextStepButton from './NextStepButton'
+import useToast from 'hooks/useToast'
+import { useContext, useState } from 'react'
+import styled from 'styled-components'
+import { getPancakeProfileAddress } from 'utils/addressHelpers'
+import { getErc721Contract } from 'utils/contractHelpers'
 import { ProfileCreationContext } from './contexts/ProfileCreationProvider'
-import multicall from '../../utils/multicall'
-import profileABI from '../../config/abi/pancakeProfile.json'
-
-const Link = styled(NextLinkFromReactRouter)`
-  color: ${({ theme }) => theme.colors.primary};
-`
-
-const NftWrapper = styled.div`
-  margin-bottom: 24px;
-`
+import NextStepButton from './NextStepButton'
 
 const ProfilePicture: React.FC = () => {
-  const { account, library } = useWeb3React()
+  const { library } = useWeb3React()
   const [isApproved, setIsApproved] = useState(false)
   const [userProfileCreationNfts, setUserProfileCreationNfts] = useState(null)
   const { selectedNft, actions } = useContext(ProfileCreationContext)
-  const profileContract = useProfileContract(false)
-  const { isLoading: isProfileLoading, profile } = useProfile()
 
   const { t } = useTranslation()
   const { toastSuccess } = useToast()

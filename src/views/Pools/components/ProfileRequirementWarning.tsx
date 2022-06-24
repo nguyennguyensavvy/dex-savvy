@@ -1,5 +1,4 @@
 import { Box, Message, MessageText } from '@pancakeswap/uikit'
-import { NextLinkFromReactRouter } from 'components/NextLink'
 import { useTranslation } from 'contexts/Localization'
 import { DeserializedPool } from 'state/types'
 import { useProfileRequirement } from '../hooks/useProfileRequirement'
@@ -27,19 +26,6 @@ export function ProfileRequirementWarning({
               amount: profileRequirement.thresholdPoints.toNumber().toLocaleString(),
             })}
         </MessageText>
-        {(notMeetRequired || notMeetThreshold) && (
-          <MessageText bold>
-            {notMeetRequired ? (
-              <NextLinkFromReactRouter style={{ textDecoration: 'underline' }} to="/create-profile">
-                {t('Create Profile')} »
-              </NextLinkFromReactRouter>
-            ) : (
-              <NextLinkFromReactRouter style={{ textDecoration: 'underline' }} to="/nft/profile">
-                {t('Go to Profile')} »
-              </NextLinkFromReactRouter>
-            )}
-          </MessageText>
-        )}
       </Box>
     </Message>
   )

@@ -1,14 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
-import { useRouter } from 'next/router'
-import { useModal } from '@pancakeswap/uikit'
 import { useWeb3React } from '@web3-react/core'
-import dynamic from 'next/dynamic'
-import request, { gql } from 'graphql-request'
 import { GALAXY_NFT_CAMPAIGN_ID } from 'config/constants'
 import { GALAXY_NFT_CLAIMING_API } from 'config/constants/endpoints'
+import request, { gql } from 'graphql-request'
 import { useERC721 } from 'hooks/useContract'
-
-const GalaxyNFTClaimModal = dynamic(() => import('./GalaxyNFTClaimModal'), { ssr: false })
+import { useRouter } from 'next/router'
+import { useEffect, useRef, useState } from 'react'
 
 interface GlobalCheckClaimStatusProps {
   excludeLocations: string[]
@@ -33,7 +29,6 @@ const GlobalCheckClaimStatus: React.FC<GlobalCheckClaimStatusProps> = (props) =>
  */
 const GlobalCheckClaim: React.FC<GlobalCheckClaimStatusProps> = ({ excludeLocations }) => {
   const hasDisplayedModal = useRef(false)
-  const [cid, setCid] = useState(null)
   const [canClaimNFT, setCanClaimNFT] = useState(false)
   const [nftBalance, setNftBalance] = useState(999) // default high to avoid flashing modal
   const galaxyNFTContract = useERC721('0x2aD5745b7aD37037339EDe18407bf9395DE2d97F', false)
@@ -61,7 +56,6 @@ const GlobalCheckClaim: React.FC<GlobalCheckClaimStatusProps> = ({ excludeLocati
         const balance = await galaxyNFTContract.balanceOf(account)
         setNftBalance(balance.toNumber())
         setCanClaimNFT(campaign.creds[0].eligible === 1)
-        setCid(campaign.numberID)
       } catch (error) {
         console.error('checkEligibilityForGalaxyNFT failed', error)
       }

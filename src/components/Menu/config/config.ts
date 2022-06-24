@@ -1,20 +1,16 @@
 import {
-  MenuItemsType,
-  DropdownMenuItemType,
-  SwapIcon,
-  SwapFillIcon,
   EarnFillIcon,
   EarnIcon,
-  TrophyIcon,
-  TrophyFillIcon,
-  NftIcon,
+  MenuItemsType,
   NftFillIcon,
-  MoreIcon,
+  NftIcon,
+  SwapFillIcon,
+  SwapIcon,
+  TrophyFillIcon,
+  TrophyIcon,
 } from '@pancakeswap/uikit'
-import { ContextApi } from 'contexts/Localization/types'
-import { nftsBaseUrl } from 'views/Nft/market/constants'
-import { perpLangMap } from 'utils/getPerpetualLanguageCode'
 import { DropdownMenuItems } from '@pancakeswap/uikit/src/components/DropdownMenu/types'
+import { ContextApi } from 'contexts/Localization/types'
 
 export type ConfigMenuDropDownItemsType = DropdownMenuItems & { hideSubNav?: boolean }
 export type ConfigMenuItemsType = Omit<MenuItemsType, 'items'> & { hideSubNav?: boolean } & {
