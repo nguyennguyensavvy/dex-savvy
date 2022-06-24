@@ -33,9 +33,6 @@ build_frontend:
     - master
   dependencies:
     - install_node_modules
-  artifacts:
-    paths:
-      - build
   tags:
     - local
 
