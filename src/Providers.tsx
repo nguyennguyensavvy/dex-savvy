@@ -11,8 +11,7 @@ import { Store } from '@reduxjs/toolkit'
 import { ThemeProvider as NextThemeProvider, useTheme as useNextTheme } from 'next-themes'
 
 const StyledThemeProvider = (props) => {
-  const { resolvedTheme } = useNextTheme()
-  return <ThemeProvider theme={resolvedTheme === 'dark' ? dark : light} {...props} />
+  return <ThemeProvider theme={dark} {...props} />
 }
 
 const Providers: React.FC<{ store: Store }> = ({ children, store }) => {
