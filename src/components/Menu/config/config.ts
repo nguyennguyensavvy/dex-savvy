@@ -1,20 +1,16 @@
 import {
-  MenuItemsType,
-  DropdownMenuItemType,
-  SwapIcon,
-  SwapFillIcon,
   EarnFillIcon,
   EarnIcon,
-  TrophyIcon,
-  TrophyFillIcon,
-  NftIcon,
+  MenuItemsType,
   NftFillIcon,
-  MoreIcon,
+  NftIcon,
+  SwapFillIcon,
+  SwapIcon,
+  TrophyFillIcon,
+  TrophyIcon,
 } from '@pancakeswap/uikit'
-import { ContextApi } from 'contexts/Localization/types'
-import { nftsBaseUrl } from 'views/Nft/market/constants'
-import { perpLangMap } from 'utils/getPerpetualLanguageCode'
 import { DropdownMenuItems } from '@pancakeswap/uikit/src/components/DropdownMenu/types'
+import { ContextApi } from 'contexts/Localization/types'
 
 export type ConfigMenuDropDownItemsType = DropdownMenuItems & { hideSubNav?: boolean }
 export type ConfigMenuItemsType = Omit<MenuItemsType, 'items'> & { hideSubNav?: boolean } & {
@@ -70,46 +66,6 @@ const config: (t: ContextApi['t'], languageCode?: string) => ConfigMenuItemsType
     fillIcon: NftFillIcon,
     items: [],
   },
-  // {
-  //   label: '',
-  //   href: '/info',
-  //   icon: MoreIcon,
-  //   hideSubNav: true,
-  //   items: [
-  //     {
-  //       label: t('Info'),
-  //       href: '/info',
-  //     },
-  //     {
-  //       label: t('IFO'),
-  //       href: '/ifo',
-  //     },
-  //     {
-  //       label: t('Voting'),
-  //       href: '/voting',
-  //     },
-  //     {
-  //       type: DropdownMenuItemType.DIVIDER,
-  //     },
-  //     {
-  //       label: t('Leaderboard'),
-  //       href: '/teams',
-  //     },
-  //     {
-  //       type: DropdownMenuItemType.DIVIDER,
-  //     },
-  //     {
-  //       label: t('Blog'),
-  //       href: 'https://medium.com/pancakeswap',
-  //       type: DropdownMenuItemType.EXTERNAL_LINK,
-  //     },
-  //     {
-  //       label: t('Docs'),
-  //       href: 'https://docs.pancakeswap.finance',
-  //       type: DropdownMenuItemType.EXTERNAL_LINK,
-  //     },
-  //   ],
-  // },
 ]
 
 export default config
