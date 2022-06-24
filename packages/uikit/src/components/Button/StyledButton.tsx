@@ -51,18 +51,20 @@ const StyledButton = styled.button<BaseButtonProps>`
   box-shadow: 0px -1px 0px 0px rgba(14, 14, 44, 0.4) inset;
   cursor: pointer;
   display: inline-flex;
-  font-family: inherit;
-  font-size: 16px;
-  font-weight: 600;
   justify-content: center;
   letter-spacing: 0.03em;
-  line-height: 1;
   opacity: ${getOpacity};
   outline: 0;
   transition: background-color 0.2s, opacity 0.2s;
 
+  font-family: "Space Grotesk";
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  color: #08121c !important;
+
   &:hover:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled):not(:active) {
-    opacity: 0.65;
+    opacity: 0.85;
   }
 
   &:active:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled) {
@@ -96,11 +98,14 @@ const StyledButton = styled.button<BaseButtonProps>`
         width: 75px;
         text-align: center;
         padding-right: 30px;
-        line-height: 20px;
-        font-size: 12px;
         font-weight: 400;
         transform: rotate(31.17deg);
-        color: ${decorator.color ?? "white"};
+        color: ${decorator.color ?? "#08121c"};
+
+        font-family: "Space Grotesk";
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 20px;
       }
     `}
 `;
