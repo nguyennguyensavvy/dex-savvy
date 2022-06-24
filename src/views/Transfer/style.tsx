@@ -103,7 +103,7 @@ export const ConfirmModalBox = styled.div`
 
     .item-right {
       display: flex;
-      gap: 5 px;
+      gap: 5px;
       align-items: center;
     }
   }
