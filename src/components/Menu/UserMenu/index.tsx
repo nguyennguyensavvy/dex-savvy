@@ -1,6 +1,5 @@
-import { useEffect, useState } from 'react'
-import { useWeb3React, UnsupportedChainIdError } from '@web3-react/core'
 import {
+  Box,
   Flex,
   LogoutIcon,
   RefreshIcon,
@@ -9,18 +8,17 @@ import {
   UserMenuDivider,
   UserMenuItem,
   UserMenuVariant,
-  Box,
 } from '@pancakeswap/uikit'
+import { UnsupportedChainIdError, useWeb3React } from '@web3-react/core'
+import ConnectWalletButton from 'components/ConnectWalletButton'
 import Trans from 'components/Trans'
+import { useTranslation } from 'contexts/Localization'
 import useAuth from 'hooks/useAuth'
 import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 import { useProfile } from 'state/profile/hooks'
 import { usePendingTransactions } from 'state/transactions/hooks'
-import ConnectWalletButton from 'components/ConnectWalletButton'
-import { useTranslation } from 'contexts/Localization'
-import { nftsBaseUrl } from 'views/Nft/market/constants'
 import WalletModal, { WalletView } from './WalletModal'
-import ProfileUserMenuItem from './ProfileUserMenuItem'
 import WalletUserMenuItem from './WalletUserMenuItem'
 
 const UserMenu = () => {
@@ -65,15 +63,6 @@ const UserMenu = () => {
           {t('Recent Transactions')}
           {hasPendingTransactions && <RefreshIcon spin />}
         </UserMenuItem>
-        <UserMenuDivider />
-        <UserMenuItem
-          as="button"
-          disabled={isWrongNetwork}
-          onClick={() => router.push(`${nftsBaseUrl}/profile/${account.toLowerCase()}`)}
-        >
-          {t('Your NFTs')}
-        </UserMenuItem>
-        <ProfileUserMenuItem isLoading={isLoading} hasProfile={hasProfile} disabled={isWrongNetwork} />
         <UserMenuDivider />
         <UserMenuItem as="button" onClick={logout}>
           <Flex alignItems="center" justifyContent="space-between" width="100%">

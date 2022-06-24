@@ -1,6 +1,5 @@
 import { Button } from '@pancakeswap/uikit'
 import { SaleStatusEnum, UserStatusEnum } from 'views/PancakeSquad/types'
-import ActivateProfileButton from '../Buttons/ActivateProfile'
 import BuyTicketsButtons from '../Buttons/BuyTickets'
 import EndEventButtons from '../Buttons/EndEvent'
 import MintButton from '../Buttons/Mint'
@@ -36,12 +35,7 @@ const stepsConfigBuilder = ({ t, userInfos, eventInfos, userStatus, account, the
       }),
       title: t('Activate your profile'),
       bodyText: [t('You’ll need an active PancakeSwap Profile to buy Minting Tickets and mint a Pancake Squad NFT!')],
-      buttons: (
-        <>
-          <ActivateProfileButton userStatus={userStatus} t={t} />
-          {hasProfileActivated && <ReadyText text={t("You're all set!")} />}
-        </>
-      ),
+      buttons: <>{hasProfileActivated && <ReadyText text={t("You're all set!")} />}</>,
     },
     {
       id: 2,
