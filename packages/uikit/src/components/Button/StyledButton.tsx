@@ -61,7 +61,6 @@ const StyledButton = styled.button<BaseButtonProps>`
   font-weight: 700;
   font-size: 14px;
   line-height: 20px;
-  color: #08121c !important;
 
   &:hover:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled):not(:active) {
     opacity: 0.85;
@@ -100,7 +99,7 @@ const StyledButton = styled.button<BaseButtonProps>`
         padding-right: 30px;
         font-weight: 400;
         transform: rotate(31.17deg);
-        color: ${decorator.color ?? "#08121c"};
+        color: ${decorator.color ?? "white"};
 
         font-family: "Space Grotesk";
         font-weight: 600;

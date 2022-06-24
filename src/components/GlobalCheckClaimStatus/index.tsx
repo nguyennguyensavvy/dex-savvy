@@ -39,7 +39,6 @@ const GlobalCheckClaim: React.FC<GlobalCheckClaimStatusProps> = ({ excludeLocati
   const galaxyNFTContract = useERC721('0x2aD5745b7aD37037339EDe18407bf9395DE2d97F', false)
   const { account } = useWeb3React()
   const { pathname } = useRouter()
-  const [onPresentModal] = useModal(<GalaxyNFTClaimModal cid={cid} />, false, true, 'galaxyNFTClaimModal')
 
   // Check claim status
   useEffect(() => {
@@ -78,10 +77,9 @@ const GlobalCheckClaim: React.FC<GlobalCheckClaimStatusProps> = ({ excludeLocati
     const matchesSomeLocations = excludeLocations.some((location) => pathname.includes(location))
 
     if (canClaimNFT && !matchesSomeLocations && !hasDisplayedModal.current && nftBalance === 0) {
-      onPresentModal()
       hasDisplayedModal.current = true
     }
-  }, [pathname, excludeLocations, hasDisplayedModal, onPresentModal, canClaimNFT, nftBalance])
+  }, [pathname, excludeLocations, hasDisplayedModal, canClaimNFT, nftBalance])
 
   // Reset the check flag when account changes
   useEffect(() => {
