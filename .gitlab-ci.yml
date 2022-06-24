@@ -2,7 +2,7 @@ image: node:14
 
 variables:
   GIT_STRATEGY: fetch
-  GIT_CLEAN_FLAGS: -ffdx -e .cache_yarn -e build -e node_modules -e yarn.lock -e .env
+  GIT_CLEAN_FLAGS: -ffdx -e .cache_yarn -e .next -e node_modules -e yarn.lock -e .env
 
 
 stages:
@@ -43,12 +43,14 @@ build_frontend:
 test_client:
   stage: test
   script:
-    - echo "Run test"
+    - echo "Run test..."
   only:
     - develop
     - master
   dependencies:
     - install_node_modules
+  tags:
+    - local
 
 deploy_all_develop:
   stage: deploy
@@ -59,7 +61,9 @@ deploy_all_develop:
     - mkdir -p ~/.ssh
     - chmod 700 ~/.ssh
   script:
-    - scp -o StrictHostKeyChecking=no -r build savvycom@10.22.4.142:~/savvy-dex-fe-react/build
+    - scp -o StrictHostKeyChecking=no -r .next savvycom@10.22.4.142:~/savvy-dex-fe-react/.next
+    - scp -o StrictHostKeyChecking=no -r .env savvycom@10.22.4.142:~/savvy-dex-fe-react/.env
+    - scp -o StrictHostKeyChecking=no -r public savvycom@10.22.4.142:~/savvy-dex-fe-react/public
   only:
     - develop
   environment:
