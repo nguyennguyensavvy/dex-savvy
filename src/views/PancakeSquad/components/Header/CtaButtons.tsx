@@ -8,7 +8,6 @@ import { SaleStatusEnum, UserStatusEnum } from '../../types'
 import BuyTicketsButtons from '../Buttons/BuyTickets'
 import MintButton from '../Buttons/Mint'
 import EndEventButtons from '../Buttons/EndEvent'
-import ActivateProfileButton from '../Buttons/ActivateProfile'
 import { getCurrentButton } from './utils'
 import { ButtonsEnum } from './types'
 
@@ -57,7 +56,6 @@ const CtaButtons: React.FC<CtaButtonsProps> = ({
   return (
     <>
       <Flex>
-        {buttonType === ButtonsEnum.ACTIVATE && <ActivateProfileButton userStatus={userStatus} t={t} />}
         {buttonType === ButtonsEnum.BUY && (
           <BuyTicketsButtons
             t={t}
