@@ -1,7 +1,6 @@
 import { BottomDrawer, Flex, useMatchBreakpointsContext } from '@pancakeswap/uikit'
 import { useWeb3React } from '@web3-react/core'
 import ConnectWalletButton from 'components/ConnectWalletButton'
-import Container from 'components/Layout/Container'
 import { PageMeta } from 'components/Layout/Page'
 import PageSection from 'components/PageSection'
 import ConvertIcon from 'components/Svg/ConvertIcon'

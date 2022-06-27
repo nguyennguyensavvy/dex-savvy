@@ -23,18 +23,17 @@ import {
   getCakeVaultV2Contract,
   getPredictionsContract,
   getChainlinkOracleContract,
-  getLotteryV2Contract,
   getBunnySpecialCakeVaultContract,
   getBunnySpecialPredictionContract,
   getFarmAuctionContract,
   getBunnySpecialLotteryContract,
   getAnniversaryAchievementContract,
   getNftMarketContract,
-  getNftSaleContract,
   getPancakeSquadContract,
   getErc721CollectionContract,
   getBunnySpecialXmasContract,
   getGalaxyNTFClaimingContract,
+  getSVCContract,
 } from 'utils/contractHelpers'
 import { getMulticallAddress } from 'utils/addressHelpers'
 import { Erc20, Erc20Bytes32, Multicall, Weth, Cake, Erc721collection, CakeVaultV2 } from 'config/abi/types'
@@ -50,6 +49,7 @@ import multiCallAbi from '../config/abi/Multicall.json'
 import { getContract, getProviderOrSigner } from '../utils'
 
 import { IPancakePair } from '../config/abi/types/IPancakePair'
+import { SVC } from '../config/abi/types/SVC'
 
 /**
  * Helper hooks to get specific contracts (by ABI)
@@ -97,6 +97,17 @@ export const useCake = (): { reader: Cake; signer: Cake } => {
   )
 }
 
+export const useSVC = (): { reader: SVC; signer: SVC } => {
+  const { account, library } = useActiveWeb3React()
+  return useMemo(
+    () => ({
+      reader: getSVCContract(null),
+      signer: getSVCContract(getProviderOrSigner(library, account)),
+    }),
+    [account, library],
+  )
+}
+
 export const useBunnyFactory = () => {
   const { library } = useActiveWeb3React()
   return useMemo(() => getBunnyFactoryContract(library.getSigner()), [library])
@@ -114,11 +125,6 @@ export const useProfileContract = (withSignerIfPossible = true) => {
     [withSignerIfPossible, library, account],
   )
   return useMemo(() => getProfileContract(signer), [signer])
-}
-
-export const useLotteryV2Contract = () => {
-  const { library } = useActiveWeb3React()
-  return useMemo(() => getLotteryV2Contract(library.getSigner()), [library])
 }
 
 export const useMasterchef = (withSignerIfPossible = true) => {
@@ -252,11 +258,6 @@ export const useAnniversaryAchievementContract = () => {
 export const useGalaxyNFTClaimingContract = () => {
   const { library } = useActiveWeb3React()
   return useMemo(() => getGalaxyNTFClaimingContract(library.getSigner()), [library])
-}
-
-export const useNftSaleContract = () => {
-  const { library } = useActiveWeb3React()
-  return useMemo(() => getNftSaleContract(library.getSigner()), [library])
 }
 
 export const usePancakeSquadContract = () => {
