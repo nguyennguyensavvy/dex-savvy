@@ -17,9 +17,6 @@ export const getMasterChefV1Address = () => {
 export const getMulticallAddress = () => {
   return getAddress(addresses.multiCall)
 }
-export const getLotteryV2Address = () => {
-  return getAddress(addresses.lotteryV2)
-}
 export const getPancakeProfileAddress = () => {
   return getAddress(addresses.pancakeProfile)
 }
@@ -94,9 +91,6 @@ export const getGalaxyNFTClaimingAddress = () => {
 }
 export const getNftMarketAddress = () => {
   return getAddress(addresses.nftMarket)
-}
-export const getNftSaleAddress = () => {
-  return getAddress(addresses.nftSale)
 }
 export const getPancakeSquadAddress = () => {
   return getAddress(addresses.pancakeSquad)

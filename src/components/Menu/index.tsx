@@ -1,16 +1,17 @@
-import { useEffect, useMemo } from 'react'
-import { useRouter } from 'next/router'
-import { NextLinkFromReactRouter } from 'components/NextLink'
 import { Menu as UikitMenu } from '@pancakeswap/uikit'
+import { NextLinkFromReactRouter } from 'components/NextLink'
+import PhishingWarningBanner from 'components/PhishingWarningBanner'
 import { languageList } from 'config/localization/languages'
 import { useTranslation } from 'contexts/Localization'
-import PhishingWarningBanner from 'components/PhishingWarningBanner'
+import useSVCTokenBalanceDisplay from 'hooks/useSVCTokenBalanceDisplay'
 import useTheme from 'hooks/useTheme'
-import UserMenu from './UserMenu'
-import { useMenuItems } from './hooks/useMenuItems'
-import GlobalSettings from './GlobalSettings'
-import { getActiveMenuItem, getActiveSubMenuItem } from './utils'
+import { useRouter } from 'next/router'
+import { useMemo } from 'react'
 import { footerLinks } from './config/footerConfig'
+import GlobalSettings from './GlobalSettings'
+import { useMenuItems } from './hooks/useMenuItems'
+import UserMenu from './UserMenu'
+import { getActiveMenuItem, getActiveSubMenuItem } from './utils'
 
 const Menu = (props) => {
   const { isDark, setTheme } = useTheme()
@@ -27,6 +28,8 @@ const Menu = (props) => {
     return footerLinks(t)
   }, [t])
 
+  const { balanceDisplay, fetchStatus } = useSVCTokenBalanceDisplay()
+
   return (
     <UikitMenu
       linkComponent={(linkProps) => {
@@ -39,6 +42,8 @@ const Menu = (props) => {
       currentLang={currentLanguage.code}
       langs={languageList}
       setLang={setLanguage}
+      svcBalance={balanceDisplay}
+      svcFetchStatus={fetchStatus}
       links={menuItems}
       subLinks={activeMenuItem?.hideSubNav || activeSubMenuItem?.hideSubNav ? [] : activeMenuItem?.items}
       footerLinks={getFooterLinks}

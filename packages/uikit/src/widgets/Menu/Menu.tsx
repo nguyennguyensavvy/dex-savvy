@@ -77,6 +77,8 @@ const Menu: React.FC<NavProps> = ({
   currentLang,
   setLang,
   cakePriceUsd,
+  svcBalance,
+  svcFetchStatus,
   links,
   subLinks,
   footerLinks,
@@ -142,7 +144,7 @@ const Menu: React.FC<NavProps> = ({
               <Flex alignItems="center" height="100%">
                 {!isMobile && !isMd && (
                   <Box mr="12px">
-                    <CakePrice showSkeleton={false} cakePriceUsd={cakePriceUsd} />
+                    <CakePrice showSkeleton={svcFetchStatus} svcBalance={svcBalance} />
                   </Box>
                 )}
                 {globalMenu} {userMenu}

@@ -1,15 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import LogoRound from "../Svg/Icons/LogoRound";
-import Text from "../Text/Text";
-import Skeleton from "../Skeleton/Skeleton";
 import { Colors } from "../../theme";
+import Skeleton from "../Skeleton/Skeleton";
 import { SVCLogo } from "../Svg";
+import Text from "../Text/Text";
 
 export interface Props {
   color?: keyof Colors;
   cakePriceUsd?: number;
   showSkeleton?: boolean;
+  svcBalance?: number;
 }
 
 const PriceLink = styled.a`
@@ -23,17 +23,23 @@ const PriceLink = styled.a`
       transform: scale(1.2);
     }
   }
+
+  span {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #f6b24f;
+  }
 `;
 
-const CakePrice: React.FC<Props> = ({ cakePriceUsd, color = "textSubtle", showSkeleton = true }) => {
-  return cakePriceUsd ? (
-    <PriceLink
-      href="https://pancakeswap.finance/swap?outputCurrency=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82"
-      target="_blank"
-    >
+const CakePrice: React.FC<Props> = ({ svcBalance, showSkeleton = true }) => {
+  return svcBalance ? (
+    <PriceLink href="https://coin.savvycom.vn/" target="_blank">
       {/* <LogoRound width="24px" mr="8px" /> */}
       <SVCLogo width="24px" mr="8px" />
-      <Text color={color} bold>{`$${cakePriceUsd.toFixed(3)}`}</Text>
+      <span>{svcBalance}</span>
     </PriceLink>
   ) : showSkeleton ? (
     <Skeleton width={80} height={24} />

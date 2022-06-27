@@ -12,6 +12,14 @@ interface TokenList {
 export const defineTokens = <T extends TokenList>(t: T) => t
 
 export const mainnetTokens = defineTokens({
+  svc: new Token(
+    MAINNET,
+    '0xC81a9C5A68cb89063b8B7C050667b00Cc1d02de5',
+    18,
+    'SVC',
+    'Savvycoin',
+    'https://coin.savvycom.vn/',
+  ),
   wbnb: new Token(
     MAINNET,
     '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
