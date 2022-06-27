@@ -1,16 +1,19 @@
-import { useEffect, useMemo } from 'react'
-import { useRouter } from 'next/router'
-import { NextLinkFromReactRouter } from 'components/NextLink'
 import { Menu as UikitMenu } from '@pancakeswap/uikit'
+import { NextLinkFromReactRouter } from 'components/NextLink'
+import PhishingWarningBanner from 'components/PhishingWarningBanner'
 import { languageList } from 'config/localization/languages'
 import { useTranslation } from 'contexts/Localization'
-import PhishingWarningBanner from 'components/PhishingWarningBanner'
 import useTheme from 'hooks/useTheme'
-import UserMenu from './UserMenu'
-import { useMenuItems } from './hooks/useMenuItems'
-import GlobalSettings from './GlobalSettings'
-import { getActiveMenuItem, getActiveSubMenuItem } from './utils'
+import { useRouter } from 'next/router'
+import { useMemo } from 'react'
+import { getFullDisplayBalance } from 'utils/formatBalance'
+import tokens from '../../config/constants/tokens'
+import useTokenBalance from '../../hooks/useTokenBalance'
 import { footerLinks } from './config/footerConfig'
+import GlobalSettings from './GlobalSettings'
+import { useMenuItems } from './hooks/useMenuItems'
+import UserMenu from './UserMenu'
+import { getActiveMenuItem, getActiveSubMenuItem } from './utils'
 
 const Menu = (props) => {
   const { isDark, setTheme } = useTheme()
@@ -27,6 +30,10 @@ const Menu = (props) => {
     return footerLinks(t)
   }, [t])
 
+  const { balance: svcBalance, fetchStatus: svcFetchStatus } = useTokenBalance(tokens.svc.address)
+
+  const svcBalanceDisplay = getFullDisplayBalance(svcBalance, 18, 3)
+
   return (
     <UikitMenu
       linkComponent={(linkProps) => {
@@ -39,6 +46,8 @@ const Menu = (props) => {
       currentLang={currentLanguage.code}
       langs={languageList}
       setLang={setLanguage}
+      svcBalance={svcBalanceDisplay}
+      svcFetchStatus={svcFetchStatus}
       links={menuItems}
       subLinks={activeMenuItem?.hideSubNav || activeSubMenuItem?.hideSubNav ? [] : activeMenuItem?.items}
       footerLinks={getFooterLinks}

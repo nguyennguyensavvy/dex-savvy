@@ -28,6 +28,8 @@ export interface NavProps {
   isDark: boolean;
   toggleTheme: (isDark: boolean) => void;
   cakePriceUsd?: number;
+  svcBalance?: number;
+  svcFetchStatus?: boolean;
   currentLang: string;
   buyCakeLabel: string;
   langs: Language[];
