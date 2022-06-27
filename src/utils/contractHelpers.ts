@@ -111,8 +111,8 @@ import type {
   CakeVaultV2,
   TradingCompetitionMobox,
   TradingCompetitionMoD,
+  SVC,
 } from 'config/abi/types'
-import { SVC } from 'config/abi/types/SVC'
 
 export const getContract = (abi: any, address: string, signer?: Signer | Provider) => {
   const signerOrProvider = signer ?? simpleRpcProvider
