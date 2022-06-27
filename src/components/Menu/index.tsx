@@ -3,12 +3,10 @@ import { NextLinkFromReactRouter } from 'components/NextLink'
 import PhishingWarningBanner from 'components/PhishingWarningBanner'
 import { languageList } from 'config/localization/languages'
 import { useTranslation } from 'contexts/Localization'
+import useSVCTokenBalanceDisplay from 'hooks/useSVCTokenBalanceDisplay'
 import useTheme from 'hooks/useTheme'
 import { useRouter } from 'next/router'
 import { useMemo } from 'react'
-import { getFullDisplayBalance } from 'utils/formatBalance'
-import tokens from '../../config/constants/tokens'
-import useTokenBalance from '../../hooks/useTokenBalance'
 import { footerLinks } from './config/footerConfig'
 import GlobalSettings from './GlobalSettings'
 import { useMenuItems } from './hooks/useMenuItems'
@@ -30,9 +28,7 @@ const Menu = (props) => {
     return footerLinks(t)
   }, [t])
 
-  const { balance: svcBalance, fetchStatus: svcFetchStatus } = useTokenBalance(tokens.svc.address)
-
-  const svcBalanceDisplay = getFullDisplayBalance(svcBalance, 18, 3)
+  const { balanceDisplay, fetchStatus } = useSVCTokenBalanceDisplay()
 
   return (
     <UikitMenu
@@ -46,8 +42,8 @@ const Menu = (props) => {
       currentLang={currentLanguage.code}
       langs={languageList}
       setLang={setLanguage}
-      svcBalance={svcBalanceDisplay}
-      svcFetchStatus={svcFetchStatus}
+      svcBalance={balanceDisplay}
+      svcFetchStatus={fetchStatus}
       links={menuItems}
       subLinks={activeMenuItem?.hideSubNav || activeSubMenuItem?.hideSubNav ? [] : activeMenuItem?.items}
       footerLinks={getFooterLinks}

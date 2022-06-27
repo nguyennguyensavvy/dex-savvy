@@ -10,7 +10,6 @@ export interface Props {
   cakePriceUsd?: number;
   showSkeleton?: boolean;
   svcBalance?: number;
-  svcFetchStatus: boolean;
 }
 
 const PriceLink = styled.a`
@@ -35,14 +34,14 @@ const PriceLink = styled.a`
   }
 `;
 
-const CakePrice: React.FC<Props> = ({ svcBalance, svcFetchStatus, color = "textSubtle", showSkeleton = true }) => {
+const CakePrice: React.FC<Props> = ({ svcBalance, showSkeleton = true }) => {
   return svcBalance ? (
     <PriceLink href="https://coin.savvycom.vn/" target="_blank">
       {/* <LogoRound width="24px" mr="8px" /> */}
       <SVCLogo width="24px" mr="8px" />
       <span>{svcBalance}</span>
     </PriceLink>
-  ) : svcFetchStatus ? (
+  ) : showSkeleton ? (
     <Skeleton width={80} height={24} />
   ) : null;
 };

@@ -144,7 +144,7 @@ const Menu: React.FC<NavProps> = ({
               <Flex alignItems="center" height="100%">
                 {!isMobile && !isMd && (
                   <Box mr="12px">
-                    <CakePrice showSkeleton={false} svcBalance={svcBalance} svcFetchStatus={svcFetchStatus} />
+                    <CakePrice showSkeleton={svcFetchStatus} svcBalance={svcBalance} />
                   </Box>
                 )}
                 {globalMenu} {userMenu}
