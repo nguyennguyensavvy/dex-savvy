@@ -2,6 +2,15 @@
  * @see https://github.com/pancakeswap/pancake-frontend/blob/develop/src/config/constants/tokens.ts
  */
 const tokens = {
+  svc: {
+    symbol: "SVC",
+    address: {
+      56: "0xC81a9C5A68cb89063b8B7C050667b00Cc1d02de5",
+      97: "0xC81a9C5A68cb89063b8B7C050667b00Cc1d02de5",
+    },
+    decimals: 18,
+    projectLink: "https://coin.savvycom.com",
+  },
   cake: {
     symbol: "CAKE",
     address: {
