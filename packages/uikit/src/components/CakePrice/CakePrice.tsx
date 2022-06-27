@@ -24,6 +24,15 @@ const PriceLink = styled.a`
       transform: scale(1.2);
     }
   }
+
+  span {
+    font-family: "Space Grotesk";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #f6b24f;
+  }
 `;
 
 const CakePrice: React.FC<Props> = ({ svcBalance, svcFetchStatus, color = "textSubtle", showSkeleton = true }) => {
@@ -31,11 +40,9 @@ const CakePrice: React.FC<Props> = ({ svcBalance, svcFetchStatus, color = "textS
     <PriceLink href="https://coin.savvycom.vn/" target="_blank">
       {/* <LogoRound width="24px" mr="8px" /> */}
       <SVCLogo width="24px" mr="8px" />
-      <Text color={color} bold>
-        {svcBalance}
-      </Text>
+      <span>{svcBalance}</span>
     </PriceLink>
-  ) : showSkeleton ? (
+  ) : svcFetchStatus ? (
     <Skeleton width={80} height={24} />
   ) : null;
 };
