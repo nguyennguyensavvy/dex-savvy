@@ -2123,6 +2123,14 @@ export const mainnetTokens = defineTokens({
 } as const)
 
 export const testnetTokens = defineTokens({
+  svc: new Token(
+    TESTNET,
+    '0xCE84144EF7A0b300433570dCC8C06269bcB0a218',
+    18,
+    'SVC',
+    'Savvycoin',
+    'https://coin.savvycom.vn/',
+  ),
   wbnb: new Token(
     TESTNET,
     '0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd',
