@@ -14,7 +14,7 @@ export const defineTokens = <T extends TokenList>(t: T) => t
 export const mainnetTokens = defineTokens({
   svc: new Token(
     MAINNET,
-    '0xC81a9C5A68cb89063b8B7C050667b00Cc1d02de5',
+    '0xCE84144EF7A0b300433570dCC8C06269bcB0a218',
     18,
     'SVC',
     'Savvycoin',
