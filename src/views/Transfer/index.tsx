@@ -61,6 +61,7 @@ const Transfer = () => {
                 className="abc"
                 id="recieverAddress"
                 placeholder="Input the address"
+                value={address}
                 onChange={(e) => setAddress(e.target.value)}
               />
             </div>
@@ -79,6 +80,7 @@ const Transfer = () => {
                 className="abc"
                 id="sendAmount"
                 placeholder="Input number of coin"
+                value={amount}
                 onChange={(e) => setAmount(e.target.value)}
               />
             </div>

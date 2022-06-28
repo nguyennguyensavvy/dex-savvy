@@ -60,6 +60,7 @@ export const TransferHeaderStyle = styled.div`
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
+    color: white;
   }
   .transfer-sub-title {
     margin-top: 10px;
