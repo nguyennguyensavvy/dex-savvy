@@ -36,7 +36,7 @@ import {
   getSVCContract,
 } from 'utils/contractHelpers'
 import { getMulticallAddress } from 'utils/addressHelpers'
-import { Erc20, Erc20Bytes32, Multicall, Weth, Cake, Erc721collection, CakeVaultV2 } from 'config/abi/types'
+import { Erc20, Erc20Bytes32, Multicall, Weth, Cake, Erc721collection, CakeVaultV2, Svc } from 'config/abi/types'
 
 // Imports below migrated from Exchange useContract.ts
 import { Contract } from '@ethersproject/contracts'
@@ -49,7 +49,6 @@ import multiCallAbi from '../config/abi/Multicall.json'
 import { getContract, getProviderOrSigner } from '../utils'
 
 import { IPancakePair } from '../config/abi/types/IPancakePair'
-import { SVC } from '../config/abi/types/SVC'
 
 /**
  * Helper hooks to get specific contracts (by ABI)
@@ -97,7 +96,7 @@ export const useCake = (): { reader: Cake; signer: Cake } => {
   )
 }
 
-export const useSVC = (): { reader: SVC; signer: SVC } => {
+export const useSVC = (): { reader: Svc; signer: Svc } => {
   const { account, library } = useActiveWeb3React()
   return useMemo(
     () => ({

@@ -35,11 +35,16 @@ const PriceLink = styled.a`
 `;
 
 const CakePrice: React.FC<Props> = ({ svcBalance, showSkeleton = true }) => {
+  const balanceFormatted = svcBalance
+    ? Number(svcBalance)
+        .toFixed(2)
+        .replace(/\d(?=(\d{3})+\.)/g, "$&,")
+    : 0;
+
   return svcBalance ? (
     <PriceLink href="https://coin.savvycom.vn/" target="_blank">
-      {/* <LogoRound width="24px" mr="8px" /> */}
       <SVCLogo width="24px" mr="8px" />
-      <span>{svcBalance}</span>
+      <span>{balanceFormatted}</span>
     </PriceLink>
   ) : showSkeleton ? (
     <Skeleton width={80} height={24} />

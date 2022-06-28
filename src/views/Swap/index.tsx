@@ -1,47 +1,45 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
-import styled from 'styled-components'
 import { CurrencyAmount, Token, Trade } from '@pancakeswap/sdk'
-import { computeTradePriceBreakdown, warningSeverity } from 'utils/exchange'
 import {
-  Button,
-  Text,
   ArrowDownIcon,
+  ArrowUpDownIcon,
+  BottomDrawer,
   Box,
-  useModal,
+  Button,
   Flex,
   IconButton,
-  BottomDrawer,
-  ArrowUpDownIcon,
   Skeleton,
+  Text,
   useMatchBreakpointsContext,
+  useModal,
 } from '@pancakeswap/uikit'
-import { useIsTransactionUnsupported } from 'hooks/Trades'
-import UnsupportedCurrencyFooter from 'components/UnsupportedCurrencyFooter'
-import Footer from 'components/Menu/Footer'
-import { useRouter } from 'next/router'
-import { useTranslation } from 'contexts/Localization'
-import { EXCHANGE_DOCS_URLS } from 'config/constants'
+import { useWeb3React } from '@web3-react/core'
 import { BIG_INT_ZERO } from 'config/constants/exchange'
+import { useTranslation } from 'contexts/Localization'
+import { useIsTransactionUnsupported } from 'hooks/Trades'
+import { useRouter } from 'next/router'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useSwapActionHandlers } from 'state/swap/useSwapActionHandlers'
+import styled from 'styled-components'
+import { computeTradePriceBreakdown, warningSeverity } from 'utils/exchange'
 import { maxAmountSpend } from 'utils/maxAmountSpend'
 import shouldShowSwapWarning from 'utils/shouldShowSwapWarning'
-import { useWeb3React } from '@web3-react/core'
-import { useSwapActionHandlers } from 'state/swap/useSwapActionHandlers'
-import useRefreshBlockNumberID from './hooks/useRefreshBlockNumber'
-import AddressInputPanel from './components/AddressInputPanel'
+import { AppBody } from '../../components/App'
 import { GreyCard } from '../../components/Card'
-import Column, { AutoColumn } from '../../components/Layout/Column'
-import ConfirmSwapModal from './components/ConfirmSwapModal'
+import ConnectWalletButton from '../../components/ConnectWalletButton'
 import CurrencyInputPanel from '../../components/CurrencyInputPanel'
+import Column, { AutoColumn } from '../../components/Layout/Column'
 import { AutoRow, RowBetween } from '../../components/Layout/Row'
-import AdvancedSwapDetailsDropdown from './components/AdvancedSwapDetailsDropdown'
+import AddressInputPanel from './components/AddressInputPanel'
 import confirmPriceImpactWithoutFee from './components/confirmPriceImpactWithoutFee'
+import ConfirmSwapModal from './components/ConfirmSwapModal'
+import ProgressSteps from './components/ProgressSteps'
 import { ArrowWrapper, SwapCallbackError, Wrapper } from './components/styleds'
 import TradePrice from './components/TradePrice'
-import ProgressSteps from './components/ProgressSteps'
-import { AppBody } from '../../components/App'
-import ConnectWalletButton from '../../components/ConnectWalletButton'
+import useRefreshBlockNumberID from './hooks/useRefreshBlockNumber'
 
-import { useCurrency, useAllTokens } from '../../hooks/Tokens'
+import ImportTokenWarningModal from '../../components/ImportTokenWarningModal'
+import CircleLoader from '../../components/Loader/CircleLoader'
+import { useAllTokens, useCurrency } from '../../hooks/Tokens'
 import { ApprovalState, useApproveCallbackFromTrade } from '../../hooks/useApproveCallback'
 import { useSwapCallback } from '../../hooks/useSwapCallback'
 import useWrapCallback, { WrapType } from '../../hooks/useWrapCallback'
@@ -49,22 +47,20 @@ import { Field } from '../../state/swap/actions'
 import {
   useDefaultsFromURLSearch,
   useDerivedSwapInfo,
-  useSwapState,
   useSingleTokenSwapInfo,
+  useSwapState,
 } from '../../state/swap/hooks'
 import {
-  useExpertModeManager,
-  useUserSlippageTolerance,
-  useUserSingleHopOnly,
   useExchangeChartManager,
+  useExpertModeManager,
+  useUserSingleHopOnly,
+  useUserSlippageTolerance,
 } from '../../state/user/hooks'
-import CircleLoader from '../../components/Loader/CircleLoader'
 import Page from '../Page'
-import SwapWarningModal from './components/SwapWarningModal'
 import PriceChartContainer from './components/Chart/PriceChartContainer'
-import { StyledInputCurrencyWrapper, StyledSwapContainer } from './styles'
 import CurrencyInputHeader from './components/CurrencyInputHeader'
-import ImportTokenWarningModal from '../../components/ImportTokenWarningModal'
+import SwapWarningModal from './components/SwapWarningModal'
+import { StyledInputCurrencyWrapper, StyledSwapContainer } from './styles'
 
 const Label = styled(Text)`
   font-size: 12px;
