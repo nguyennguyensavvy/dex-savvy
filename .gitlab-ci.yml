@@ -27,7 +27,6 @@ build_frontend:
   stage: build
   script:
     - cp .env.development .env
-    - git checkout public/images/home/chainBanner.png
     - yarn build
   only:
     - develop
