@@ -29,6 +29,7 @@ const getPathList = (t: ContextApi['t']): PathList => {
       '/farms': { title: t('Farms') },
       '/farms/auction': { title: t('Farm Auctions') },
       '/pools': { title: t('Pools') },
+      '/transfer': { title: t('Transfer') },
       '/lottery': { title: t('Lottery') },
       '/ifo': { title: t('Initial Farm Offering') },
       '/teams': { basePath: true, title: t('Leaderboard') },

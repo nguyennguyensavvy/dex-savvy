@@ -15,9 +15,6 @@ const ConfirmModal: React.FC<Props> = ({ onDismiss }) => {
   return (
     <Modal title="Confirm Gift" onDismiss={onDismiss}>
       <ConfirmModalBox>
-        <div className="blur">
-          <></>
-        </div>
         <div className="confirm-item">
           <div className="item-left">
             <p>Email</p>
