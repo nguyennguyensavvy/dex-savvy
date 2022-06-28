@@ -60,12 +60,14 @@ export const fetchFarmsPublicDataAsync = createAsyncThunk<
       },
       {
         address: masterChefAddress,
-        name: 'cakePerBlock',
-        params: [true],
+        name: 'rewardTokenPerBlock',
+        // rewardTokenPerBlock doesn't has params
+        // params: [true],
       },
     ]
-    const [[poolLength], [cakePerBlockRaw]] = await multicall(masterchefABI, calls)
-    const regularCakePerBlock = getBalanceAmount(ethersToBigNumber(cakePerBlockRaw))
+    const [[poolLength], [rewardTokenPerBlock]] = await multicall(masterchefABI, calls)
+
+    const regularCakePerBlock = getBalanceAmount(ethersToBigNumber(rewardTokenPerBlock))
     const farmsToFetch = farmsConfig.filter((farmConfig) => pids.includes(farmConfig.pid))
     const farmsCanFetch = farmsToFetch.filter((f) => poolLength.gt(f.pid))
 

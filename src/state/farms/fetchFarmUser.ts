@@ -31,6 +31,7 @@ export const fetchFarmUserTokenBalances = async (account: string, farmsToFetch: 
   })
 
   const rawTokenBalances = await multicall(erc20ABI, calls)
+
   const parsedTokenBalances = rawTokenBalances.map((tokenBalance) => {
     return new BigNumber(tokenBalance).toJSON()
   })
@@ -61,7 +62,7 @@ export const fetchFarmUserEarnings = async (account: string, farmsToFetch: Seria
   const calls = farmsToFetch.map((farm) => {
     return {
       address: masterChefAddress,
-      name: 'pendingCake',
+      name: 'pendingRewardToken',
       params: [farm.pid, account],
     }
   })
