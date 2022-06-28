@@ -116,6 +116,7 @@ import type {
 
 export const getContract = (abi: any, address: string, signer?: Signer | Provider) => {
   const signerOrProvider = signer ?? simpleRpcProvider
+
   return new Contract(address, abi, signerOrProvider)
 }
 
@@ -136,8 +137,8 @@ export const getIfoV2Contract = (address: string, signer?: Signer | Provider) =>
 }
 export const getSouschefContract = (id: number, signer?: Signer | Provider) => {
   const config = poolsConfig.find((pool) => pool.sousId === id)
-  const abi = config.poolCategory === PoolCategory.BINANCE ? sousChefBnb : sousChef
-  return getContract(abi, getAddress(config.contractAddress), signer) as SousChef
+  const abi = config?.poolCategory === PoolCategory.BINANCE ? sousChefBnb : sousChef
+  return getContract(abi, getAddress(config?.contractAddress), signer) as SousChef
 }
 export const getSouschefV2Contract = (id: number, signer?: Signer | Provider) => {
   const config = poolsConfig.find((pool) => pool.sousId === id)

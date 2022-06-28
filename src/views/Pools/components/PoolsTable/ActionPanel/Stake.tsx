@@ -70,11 +70,11 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool }) => {
   const { account } = useWeb3React()
   const { isMobile } = useMatchBreakpointsContext()
 
-  const stakingTokenContract = useERC20(stakingToken.address || '')
+  const stakingTokenContract = useERC20(stakingToken?.address || '')
   const { handleApprove: handlePoolApprove, pendingTx: pendingPoolTx } = useApprovePool(
     stakingTokenContract,
     sousId,
-    earningToken.symbol,
+    earningToken?.symbol,
   )
 
   const { isVaultApproved, setLastUpdated } = useCheckVaultApprovalStatus()
