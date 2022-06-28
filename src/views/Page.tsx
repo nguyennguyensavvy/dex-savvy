@@ -13,6 +13,7 @@ const StyledPage = styled.div<{ $removePadding: boolean; $noMinHeight }>`
   margin: auto;
   margin-top: 85px;
   padding-top: 80px;
+  padding-bottom: 50px;
 
   ${({ theme }) => theme.mediaQueries.xs} {
     background-size: auto;
