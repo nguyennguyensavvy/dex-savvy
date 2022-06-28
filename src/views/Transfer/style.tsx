@@ -36,6 +36,7 @@ export const TransferBox = styled.div`
       padding-left: 15px;
       font-family: inter;
       font-size: 16px;
+      color: white;
     }
     input::placeholder {
       color: rgba(255, 255, 255, 0.25);
