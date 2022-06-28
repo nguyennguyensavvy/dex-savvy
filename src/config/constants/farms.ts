@@ -27,7 +27,7 @@ const farms: SerializedFarmConfig[] = [
       97: '0xb7700d40d934478C172E55697734CAE0A7858127',
       56: '',
     },
-    token: serializedTokens.cake,
+    token: serializedTokens.svc,
     quoteToken: serializedTokens.wbnb,
   },
   {
