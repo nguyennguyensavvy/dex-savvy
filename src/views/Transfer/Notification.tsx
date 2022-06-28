@@ -1,16 +1,14 @@
-import { Button, CloseIcon, Modal } from '@pancakeswap/uikit'
-import { ModalActions } from 'components/Modal'
-import MetamaskLoIcon from 'components/Svg/MetamaskLoIcon'
+import { Modal } from '@pancakeswap/uikit'
 import SuccessIconVector from 'components/Svg/SuccessIconVector'
-import { useTranslation } from 'contexts/Localization'
 import React from 'react'
 import { NotificationBox } from './style'
 
 interface Props {
   onDismiss?: () => void
+  txtHash: string
 }
 
-const Notification: React.FC<Props> = ({ onDismiss }) => {
+const Notification: React.FC<Props> = ({ onDismiss, txtHash }) => {
   return (
     <Modal title="Notification" onDismiss={onDismiss}>
       <NotificationBox>
@@ -18,12 +16,9 @@ const Notification: React.FC<Props> = ({ onDismiss }) => {
           <SuccessIconVector />
         </div>
         <p style={{ fontSize: '20px' }}>Send gift successful</p>
-        <p style={{ color: '#F6B24F' }}>View on BsCScan</p>
-        <div className="btn-addto-metamask">
-          <p>Add BUSD to Metamask</p>
-          <MetamaskLoIcon />
-        </div>
-
+        <a href={`https://testnet.bscscan.com/tx/${txtHash}`} style={{ color: '#F6B24F' }}>
+          View on BsCScan
+        </a>
         <button className="button-notification" onClick={() => onDismiss()} type="button">
           Close
         </button>

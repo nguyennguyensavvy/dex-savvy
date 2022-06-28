@@ -1,14 +1,4 @@
-import {
-  ChartIcon,
-  Flex,
-  Heading,
-  HistoryIcon,
-  IconButton,
-  NotificationDot,
-  Text,
-  useModal,
-  ChartDisableIcon,
-} from '@pancakeswap/uikit'
+import { HistoryIcon } from '@pancakeswap/uikit'
 
 // eslint-disable-next-line import/named
 import { TransferHeaderStyle } from './style'

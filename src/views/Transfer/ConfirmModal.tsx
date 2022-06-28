@@ -1,34 +1,28 @@
-import { Button, CloseIcon, Modal, useModal } from '@pancakeswap/uikit'
-import { ModalActions } from 'components/Modal'
-import { useTranslation } from 'contexts/Localization'
-import React from 'react'
+import { Button, Modal } from '@pancakeswap/uikit'
 import GreenSavvycoinIcon from 'components/Svg/GreenSavvycoinIcon'
+import React from 'react'
 import { ConfirmModalBox } from './style'
-import Notification from './Notification'
 // eslint-disable-next-line import/order
 
 interface Props {
   onDismiss?: () => void
+  address: string
+  amount: string
+  onSubmit?: () => void
 }
-const ConfirmModal: React.FC<Props> = ({ onDismiss }) => {
-  const [onPresentConfirm] = useModal(<Notification />)
+const ConfirmModal: React.FC<Props> = ({ onDismiss, address, amount, onSubmit }) => {
+  const handleOnSubmit = () => {
+    onSubmit()
+  }
   return (
     <Modal title="Confirm Gift" onDismiss={onDismiss}>
       <ConfirmModalBox>
         <div className="confirm-item">
           <div className="item-left">
-            <p>Email</p>
-          </div>
-          <div className="item-right">
-            <p>hieu.tran@savvycomsoftware.com</p>
-          </div>
-        </div>
-        <div className="confirm-item">
-          <div className="item-left">
             <p>Wallet Address</p>
           </div>
           <div className="item-right">
-            <p>0xsk23...0fg</p>
+            <p>{address}</p>
           </div>
         </div>
         <div className="confirm-item">
@@ -39,11 +33,11 @@ const ConfirmModal: React.FC<Props> = ({ onDismiss }) => {
             <div className="icon">
               <GreenSavvycoinIcon />
             </div>
-            <p>800</p>
+            <p>{amount}</p>
           </div>
         </div>
         <div className="button-confirm">
-          <Button width="100%" onClick={onPresentConfirm}>
+          <Button width="100%" type="button" onClick={handleOnSubmit}>
             Confirm
           </Button>
         </div>
