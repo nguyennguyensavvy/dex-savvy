@@ -11,11 +11,9 @@ import { useCurrency } from 'hooks/Tokens'
 import useTheme from 'hooks/useTheme'
 import { useState } from 'react'
 import { Field } from 'state/swap/actions'
-import { useDefaultsFromURLSearch, useDerivedSwapInfo, useSingleTokenSwapInfo, useSwapState } from 'state/swap/hooks'
+import { useDerivedSwapInfo, useSingleTokenSwapInfo, useSwapState } from 'state/swap/hooks'
 import { useExchangeChartManager } from 'state/user/hooks'
 import styled from 'styled-components'
-import { getSVCContract } from 'utils/contractHelpers'
-import { formatBigNumber } from 'utils/formatBalance'
 import PriceChartContainer from 'views/Swap/components/Chart/PriceChartContainer'
 import FeatureBox from './components/FeatureSection/FeatureBox'
 import { BannerBox } from './style'
@@ -81,11 +79,6 @@ const Home: React.FC = () => {
   const [userChartPreference, setUserChartPreference] = useExchangeChartManager(isMobile)
   const [isChartDisplayed, setIsChartDisplayed] = useState(userChartPreference)
 
-  const loadedUrlParams = useDefaultsFromURLSearch()
-  const [loadedInputCurrency, loadedOutputCurrency] = [
-    useCurrency(loadedUrlParams?.inputCurrencyId),
-    useCurrency(loadedUrlParams?.outputCurrencyId),
-  ]
   // swap state & price data
   const {
     independentField,
@@ -97,13 +90,7 @@ const Home: React.FC = () => {
   const inputCurrency = useCurrency(inputCurrencyId)
   const outputCurrency = useCurrency(outputCurrencyId)
 
-  const {
-    v2Trade,
-    currencyBalances,
-    parsedAmount,
-    currencies,
-    inputError: swapInputError,
-  } = useDerivedSwapInfo(independentField, typedValue, inputCurrency, outputCurrency, recipient)
+  const { currencies } = useDerivedSwapInfo(independentField, typedValue, inputCurrency, outputCurrency, recipient)
   const singleTokenPrice = useSingleTokenSwapInfo(inputCurrencyId, inputCurrency, outputCurrencyId, outputCurrency)
 
   return (
@@ -125,7 +112,7 @@ const Home: React.FC = () => {
               profit.
             </p>
 
-            <ConnectWalletButton mt="24px" scale="md" maxWidth="176px" />
+            {!account && <ConnectWalletButton mt="24px" scale="md" maxWidth="176px" />}
           </div>
           {isDesktop && <img src="/images/home/chainBanner.png" alt="chain" className="chainBanner" />}
         </BannerBox>
