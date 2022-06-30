@@ -36,7 +36,7 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({ pid, userD
     displayBalance = earnings.toFixed(3, BigNumber.ROUND_DOWN)
   }
 
-  const { onReward } = useHarvestFarm(pid)
+  const { onReward } = useHarvestFarm()
   const { t } = useTranslation()
   const dispatch = useAppDispatch()
   const { account } = useWeb3React()

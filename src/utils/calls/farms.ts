@@ -25,3 +25,26 @@ export const harvestFarm = async (masterChefContract, pid) => {
 
   return masterChefContract.deposit(pid, '0', { ...options, gasPrice })
 }
+
+// Use for harvest in newpools tab < = > farm[0] in farms constant.
+export const harvestFarmSvc = async (masterChefContract) => {
+  const gasPrice = getGasPrice()
+
+  return masterChefContract.enterStaking('0', { ...options, gasPrice })
+}
+
+// Use for stake in newpools tab < = > farm[0] in farms constant.
+export const enterStakingFarmSvc = async (masterChefContract, amount) => {
+  const gasPrice = getGasPrice()
+  const value = new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString()
+
+  return masterChefContract.enterStaking(value, { ...options, gasPrice })
+}
+
+// Use for unstake in newpools tab < = > farm[0] in farms constant.
+export const leaveStakingFarmSvc = async (masterChefContract, amount) => {
+  const gasPrice = getGasPrice()
+  const value = new BigNumber(amount).times(DEFAULT_TOKEN_DECIMAL).toString()
+
+  return masterChefContract.leaveStaking(value, { ...options, gasPrice })
+}

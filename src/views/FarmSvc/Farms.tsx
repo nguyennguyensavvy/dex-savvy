@@ -151,10 +151,8 @@ const Farms: React.FC = ({ children }) => {
 
   const [stakedOnly, setStakedOnly] = useUserFarmStakedOnly(isActive)
 
-  // TODO: Temporary just show only farm svc/bnb
-  const activeFarms = farmsLP.filter(
-    (farm) => farm.pid === 1 && farm.multiplier !== '0X' && (!poolLength || poolLength > farm.pid),
-  )
+  // Show onlu one farm svc/svc
+  const activeFarms = farmsLP.filter((farm) => farm.pid === 0)
 
   const inactiveFarms = farmsLP.filter((farm) => farm.pid !== 0 && farm.multiplier === '0X')
   const archivedFarms = farmsLP

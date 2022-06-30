@@ -57,7 +57,7 @@ const PoolTabButtons = ({ stakedOnly, setStakedOnly, hasStakeInFinishedPools, vi
 
   const { t } = useTranslation()
 
-  const isExact = router.asPath === '/pools'
+  const isExact = router.asPath === '/newpools'
 
   const viewModeToggle = (
     <ToggleView idPrefix="clickPool" viewMode={viewMode} onToggle={(mode: ViewMode) => setViewMode(mode)} />
@@ -66,11 +66,11 @@ const PoolTabButtons = ({ stakedOnly, setStakedOnly, hasStakeInFinishedPools, vi
   const liveOrFinishedSwitch = (
     <Wrapper>
       <ButtonMenu activeIndex={isExact ? 0 : 1} scale="sm" variant="subtle">
-        <ButtonMenuItem as={NextLinkFromReactRouter} to="/pools" replace>
+        <ButtonMenuItem as={NextLinkFromReactRouter} to="/newpools" replace>
           {t('Live')}
         </ButtonMenuItem>
         <NotificationDot show={hasStakeInFinishedPools}>
-          <ButtonMenuItem id="finished-pools-button" as={NextLinkFromReactRouter} to="/pools/history" replace>
+          <ButtonMenuItem id="finished-pools-button" as={NextLinkFromReactRouter} to="/newpools/history" replace>
             {t('Finished')}
           </ButtonMenuItem>
         </NotificationDot>

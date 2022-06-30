@@ -61,7 +61,7 @@ export default {
   },
   cakeVault: {
     56: '0x45c54210128a065de780C4B0Df3d16664f7f859e',
-    97: '',
+    97: '0xC5C916ECAAc097E4935a2636cD7210Dbc887474e', // cakeVault from testnet created on https://testnet.bscscan.com/address/0x2ad35cd5a849091ff5a782b9613320bbb031bae9
   },
   predictions: {
     56: '0x18B2A687610328590Bc8F2e5fEdDe3b582A49cdA',
