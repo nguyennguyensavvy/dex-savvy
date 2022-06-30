@@ -25,7 +25,7 @@ const masterChefFarmCalls = (farm: SerializedFarm) => {
         },
         {
           address: masterChefAddress,
-          name: 'totalRegularAllocPoint',
+          name: 'totalAllocPoint', // We updated method totalRegularAllocPoint by totalAllocPoint in smart contract farming * //,
         },
       ]
     : [null, null]
